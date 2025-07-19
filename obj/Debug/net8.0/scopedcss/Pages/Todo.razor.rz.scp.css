@@ -1,0 +1,13 @@
+body[b-loala55mxb] {
+}
+
+.done[b-loala55mxb] {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+}
+
+li[b-loala55mxb] {
+    margin-bottom: 8px;
+}

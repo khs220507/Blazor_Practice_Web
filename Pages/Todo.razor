@@ -1,0 +1,122 @@
+﻿@page "/todo"
+
+<h3>Blazor To-Do List</h3>
+
+<input @bind="newTodo" placeholder="할 일 입력" />
+<button class="btn btn-primary btn-sm ms-2" @onclick="AddTodo">추가</button>
+
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th style="width:40px;"></th>
+            <th>할 일</th>
+            <th style="width:160px;">작업</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in todos)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" @bind="item.IsDone" />
+                </td>
+                <td>
+                    @if (editItem == item)
+                    {
+                        <input @bind="editText" @onkeydown="OnEditKeyDown" class="form-control d-inline w-auto" />
+                    }
+                    else
+                    {
+                        <span class="@(item.IsDone ? "done" : "")">@item.Title</span>
+                    }
+                </td>
+                <td>
+                    @if (editItem == item)
+                    {
+                        <button class="btn btn-sm btn-success me-1" @onclick="() => SaveEdit(item)">저장</button>
+                        <button class="btn btn-sm btn-secondary me-1" @onclick="CancelEdit">취소</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-sm btn-warning me-1" @onclick="() => StartEdit(item)">편집</button>
+                    }
+                    <button class="btn btn-sm btn-danger" @onclick="() => RemoveTodo(item)">삭제</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    private string newTodo = "";
+    private List<TodoItem> todos = new();
+
+    // 수정 관련 변수
+    private TodoItem? editItem = null;
+    private string editText = "";
+
+    void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(newTodo))
+        {
+            todos.Add(new TodoItem { Title = newTodo });
+            newTodo = "";
+        }
+    }
+
+    void RemoveTodo(TodoItem item)
+    {
+        todos.Remove(item);
+        if (editItem == item)
+        {
+            editItem = null;
+            editText = "";
+        }
+    }
+
+    // 수정 시작
+    void StartEdit(TodoItem item)
+    {
+        editItem = item;
+        editText = item.Title;
+    }
+
+    // 수정 저장
+    void SaveEdit(TodoItem item)
+    {
+        if (!string.IsNullOrWhiteSpace(editText))
+        {
+            item.Title = editText;
+        }
+        editItem = null;
+        editText = "";
+    }
+
+    // 수정 취소
+    void CancelEdit()
+    {
+        editItem = null;
+        editText = "";
+    }
+
+    // Enter 키로 저장
+    void OnEditKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && editItem != null)
+        {
+            SaveEdit(editItem);
+        }
+        else if (e.Key == "Escape")
+        {
+            CancelEdit();
+        }
+    }
+
+    public class TodoItem
+    {
+        public string Title { get; set; } = "";
+        public bool IsDone { get; set; } = false;
+    }
+}
