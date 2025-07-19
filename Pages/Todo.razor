@@ -1,6 +1,13 @@
 ﻿@page "/todo"
 
-<h3>Blazor To-Do List</h3>
+<h3>Blazor 할 일 목록</h3>
+
+<div class="mb-2">
+    <span class="badge bg-primary fs-6">
+        @todos.Count(x => x.IsDone) / @todos.Count
+    </span>
+    <span class="ms-2 text-muted">완료/전체</span>
+</div>
 
 <input @bind="newTodo" placeholder="할 일 입력" />
 <button class="btn btn-primary btn-sm ms-2" @onclick="AddTodo">추가</button>

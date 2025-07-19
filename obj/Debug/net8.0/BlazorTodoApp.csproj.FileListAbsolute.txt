@@ -1034,6 +1034,7 @@ C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\refint\BlazorTodoApp.d
 C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\BlazorTodoApp.pdb
 C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\ref\BlazorTodoApp.dll
 C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\scopedcss\Pages\Todo.razor.rz.scp.css
-C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\compressed\hcxwhmcb3u-ko5j9m8z43.gz
-C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\compressed\i6pbxajsoz-cj6qtxy563.gz
-C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\compressed\aythp3w6ky-fvygzdta1d.gz
+C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\BlazorTodoApp.sourcelink.json
+C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\compressed\hcxwhmcb3u-wlhgwbb20a.gz
+C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\compressed\i6pbxajsoz-a6whkbfmgp.gz
+C:\Workspace\BlazorTodoApp\BlazorTodoApp\obj\Debug\net8.0\compressed\aythp3w6ky-mokqoqjjk3.gz
